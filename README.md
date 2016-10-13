@@ -1,15 +1,3 @@
-# Html5简单动画的几种实现方式
+# Html简单动画的几种实现方式
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
-
-[](codepen://indrekpaas/rrmvRp?theme=0)
-
-{% raw %}
-
-Upgrade Path
-
-Run the migration helper on your codebase to find examples of Vue.elementDirective.
-
-{% endraw %}
-
-
+本文介绍了html页面几种简单动画的实现方式，涉及css transform动画，css transition动画，svg动画，[FLIP](https://aerotwist.com/blog/flip-your-animations/)动画(FLIP,First,Last,Invert,Play).
