@@ -1,0 +1,10 @@
+{
+    "plugins": [
+        "codepen"
+    ],
+     "styles": {
+        "ebook": "styles/ebook.css",
+        "website": "styles/website.css"
+     },
+    "pluginsConfig": {}
+}
