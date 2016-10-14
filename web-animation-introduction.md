@@ -4,6 +4,8 @@
 
 ## css animation 动画
 
+通过css3animation
+
 - timming function 
 
 - step sprit
@@ -11,6 +13,64 @@
 - animation-fill-mode
 
 ## css transition动画
+
+有过渡效果的属性：
+
+| 属性名称 | 类型 |
+| -------- | ---- |
+| transform | all |
+| background-color | color |
+| background-image | only gradients |
+| background-position | percentage, length |
+| border-bottom-color | color |
+| border-bottom-width | length |
+| border-color | color |
+| border-left-color | color |
+| border-left-width | length |
+| border-right-color | color |
+| border-right-width | length |
+| border-spacing | length |
+| border-top-color | color |
+| border-top-width | length |
+| border-width | length |
+| bottom | length, percentage |
+| color | color |
+| crop | rectangle |
+| font-size | length, percentage |
+| font-weight | number |
+| grid-* | various |
+| height | length, percentage |
+| left | length, percentage |
+| letter-spacing | length |
+| line-height | number, length, percentage |
+| margin-bottom | length |
+| margin-left | length |
+| margin-right | length |
+| margin-top | length |
+| max-height | length, percentage |
+| max-width | length, percentage |
+| min-height | length, percentage |
+| min-width | length, percentage |
+| opacity | number |
+| outline-color | color |
+| outline-offset | integer |
+| outline-width | length |
+| padding-bottom | length |
+| padding-left | length |
+| padding-right | length |
+| padding-top | length |
+| right | length, percentage |
+| text-indent | length, percentage |
+| text-shadow | shadow |
+| top | length, percentage |
+| vertical-align | keywords, length, percentage |
+| visibility | visibility |
+| width | length, percentage |
+| word-spacing | length, percentage |
+| z-index | integer |
+| zoom | number |
+
+
 
 ## svg动画
 
