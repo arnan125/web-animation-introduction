@@ -26,7 +26,7 @@ FLIP
 
 一些应用:
 
-- [hanno](https://arnan125.github.io/hanno?n=10)
+- [hanno](https://arnan125.github.io/hanno/?n=10)
 
 - [vue-animated-list](https://github.com/vuejs/vue-animated-list)
 
