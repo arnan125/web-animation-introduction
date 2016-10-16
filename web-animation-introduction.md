@@ -12,6 +12,8 @@
 
 - step sprit
 
+[](codepen://arnan125/dpqNLR)
+
 - animation-fill-mode
 
 有过渡效果的属性：
@@ -86,7 +88,7 @@ FLIP
 
 一些应用:
 
-- [hanno](https://arnan125.github.io/hanno/?n=10)
+[](codepen://arnan125/bwxgyO?height=800)
 
 - [vue-animated-list](https://github.com/vuejs/vue-animated-list)
 
