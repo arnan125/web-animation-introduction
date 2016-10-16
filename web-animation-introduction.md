@@ -4,7 +4,7 @@
 
 ## css animation/transition 动画
 
-[](codepen://arnan125/WGgRvz)
+[](codepen://arnan125/WGgRvz?height=500)
 
 通过css3animation
 
@@ -88,7 +88,7 @@ FLIP
 
 一些应用:
 
-[](codepen://arnan125/bwxgyO?height=800)
+[](codepen://arnan125/bwxgyO?height=600)
 
 - [vue-animated-list](https://github.com/vuejs/vue-animated-list)
 
