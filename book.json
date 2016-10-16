@@ -6,5 +6,10 @@
         "ebook": "styles/ebook.css",
         "website": "styles/website.css"
      },
-    "pluginsConfig": {}
+    "pluginsConfig": {
+        "codepen": {
+          "height": 400,
+          "theme": 14038,
+        }
+    }
 }
