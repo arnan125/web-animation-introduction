@@ -72,7 +72,7 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
     animation: name duration timing-function delay iteration-count direction fill-mode;
   ```
   
-  其中，timing-function可以取预定义的值如`linear`、`ease`等，三次贝塞尔函数，阶跃函数steps。
+  timing-function可以取预定义的值如`linear`、`ease`等，三次贝塞尔函数，阶跃函数steps。
   
   timing-function作用周期是两次属性变化之间（非一次完整动画过程）。
   
@@ -88,13 +88,13 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
     transition: property duration timing-function delay;
   ```
   
-  其中，timing-function可以取预定义的值如`linear`、`ease`等，三次贝塞尔函数，阶跃函数steps。
+  timing-function可以取预定义的值如`linear`、`ease`等，三次贝塞尔函数，阶跃函数steps。
   
   一般通过修改属性值或者由伪类来触发transition动画。
 
-- 时间函数steps(num, flag)
+- 时间函数——阶跃函数`steps(num, flag)`
   
-  num是两次属性变动之间发生的阶跃次数，flag表示阶跃的变动点在时隙的开始还是结束，默认为`end`，即保持当前状态到时隙结束才发生变动（例如，当`num`为1，flag取`end`时，动画将保持初始状态直到时隙结束，如果取`start`，状态则在时隙一开始就发生了变化）
+  `num`是两次属性变动之间发生的阶跃次数，`flag`表示阶跃的变动点在时隙的开始还是结束，默认为`end`，即保持当前状态到时隙结束才发生变动（例如，当`num`为1，flag取`end`时，动画将保持初始状态直到时隙结束，如果取`start`，状态则在时隙一开始就发生了变化）
   
   steps常用来作为雪碧图（sprite）动画的时间函数，如后文示例
 
