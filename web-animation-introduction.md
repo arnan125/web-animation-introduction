@@ -4,7 +4,7 @@
 
 ## css animation/transition 动画
 
-css3引入的`transition`和`animation`属性给网页动画提供了一种新的解决方案，控制dom元素变动属性按照特定的时间函数变化，从而呈现动画效果。
+css3 引入的`transition`和`animation`属性给网页动画提供了一种新的解决方案，通过控制dom元素变动属性按照特定的时间函数变化，从而呈现动画效果。
 
 ### 有过渡效果的属性：
 
@@ -62,7 +62,7 @@ css3引入的`transition`和`animation`属性给网页动画提供了一种新�
 | z-index | integer |
 | zoom | number |
 
-> 这里并未全部列出具有过渡效果的属性，比如svg元素属性`dash-array`等，通常凡表位置、大小尺寸的属性皆可以用作transition或者animation作用的对象
+> 这里并未全部列出具有过渡效果的属性，比如svg元素属性`dash-array`等，通常凡表位置、大小尺寸的属性皆可以用作transition或者animation作用的对象。
 
 ### 语法和api
 
@@ -74,13 +74,13 @@ css3引入的`transition`和`animation`属性给网页动画提供了一种新�
   
   其中，timing-function可以取预定义的值如`linear`、`ease`等，三次贝塞尔函数，阶跃函数steps。
   
-  timing-function作用周期是两次属性变化之间（非一次完整动画过程）
+  timing-function作用周期是两次属性变化之间（非一次完整动画过程）。
   
   delay可以为负值，对于-n秒，表示动画跳过前n秒直接从既定时序的第n秒开始执行动画，否则即为延迟开始执行动画。
   
   duration指的是一次完整动画过程所需时间（不重复）。
   
-  fill-mode指的是结束动画后元素的位置（大小）状态，默认取值normal表示恢复原位置（大小），当取其他值的时候，还依赖于`animation-direction`和`iteration-count`。常用的取值之一`forwards`,将会使只执行一次的正序（normal）动画保持最终状态。其它取值不再一一列举，具体细节请查看[animation-fill-mode](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-fill-mode).
+  fill-mode指的是结束动画后元素的位置（大小）状态，默认取值`normal`表示恢复原位置（大小）。当取其他值的时候，还依赖于属性`animation-direction`和`iteration-count`。常用的取值之一`forwards`,将会使只执行一次的正序（normal）动画保持最终状态。其它取值不再一一列举，具体细节请查看[animation-fill-mode](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-fill-mode).
 
 - transition
 
@@ -94,21 +94,19 @@ css3引入的`transition`和`animation`属性给网页动画提供了一种新�
 
 - 时间函数steps(num, flag)
   
-  num是两次属性变动之间发生的阶跃次数，flag表示阶跃的变动点在时隙的开始还是结束，默认为`end`，即保持当前状态到时隙结束才发生变动（例如，num为1的时候，flag取`end`
-
-  则动画将保持初始状态直到时隙结束，如果取`start`则状态在时隙一开始就发生了变化）
+  num是两次属性变动之间发生的阶跃次数，flag表示阶跃的变动点在时隙的开始还是结束，默认为`end`，即保持当前状态到时隙结束才发生变动（例如，当`num`为1，flag取`end`时，动画将保持初始状态直到时隙结束，如果取`start`，状态则在时隙一开始就发生了变化）
   
-  steps常用来作为雪碧图（sprite）动画的时间函数，如下例
+  steps常用来作为雪碧图（sprite）动画的时间函数，如后文示例
 
 - 事件
   
   transitionend：在transition动画结束后触发
 
-  animationstart： animation动画开始时触发
+  animationstart：在animation动画开始时触发
 
-  animationend：在transition动画结束后触发
+  animationend：在animation动画结束后触发
 
-  animationiteration：在执行完一次动画过程时触发（`animation-iteration-count`为1的时不触发）
+  animationiteration：在执行完一次animation动画周期时触发（`animation-iteration-count`为1的时不触发）
   
 ### demo
   
@@ -116,7 +114,7 @@ css3引入的`transition`和`animation`属性给网页动画提供了一种新�
   [](codepen://arnan125/WGgRvz?height=500)
 
 
-  雪碧图动画 （内含transition实现）
+  雪碧图animation动画（内含transition实现）
   [](codepen://arnan125/dpqNLR)
 
 
