@@ -71,7 +71,8 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
   ``` css
     animation: name duration timing-function delay iteration-count direction fill-mode;
   ```
-  
+  name keyframes
+
   timing-function可以取预定义的值如`linear`、`ease`等，三次贝塞尔函数，阶跃函数steps。
   
   timing-function作用周期是两次属性变化之间（非一次完整动画过程）。
@@ -86,8 +87,15 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
 
   ``` css
     transition: property duration timing-function delay;
+    
+    // 多属性多配置
+    transition: property duration timing-function delay, property duration timing-function delay;
+    
+    // 
+    transition: property duration timing-function delay, property duration timing-function delay;
   ```
-  
+  多个属性
+
   timing-function可以取预定义的值如`linear`、`ease`等，三次贝塞尔函数，阶跃函数steps。
   
   一般通过修改属性值或者由伪类来触发transition动画。
