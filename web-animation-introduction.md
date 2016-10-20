@@ -113,7 +113,6 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
   一个常规animation动画
   [](codepen://arnan125/WGgRvz?height=500)
 
-
   雪碧图animation动画（内含transition实现）
   [](codepen://arnan125/dpqNLR)
 
@@ -123,6 +122,8 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
 - dash-array
 
 - animation-path
+
+[](codepen://arnan125/RGqYRV?height=600)
 
 ## FLIP动画
 
