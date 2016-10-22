@@ -172,10 +172,9 @@ svg（Scalable Vector Graphics，可缩放矢量图形），是一种用来描�
 
 其中前三个都可以用css animation/transition 替代实现，唯独第四个沿路径运动是css animation/transition无法直接实现的。因此这里重点介绍`<animateMotion>`。
 
-`<animateMotion>`元素使一个元素的位置动起来，并顺着路径同步旋转。定义这个路径是与在(`<path>`)[https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/path]元素中定义路径的方法相同。
+`<animateMotion>`元素使一个元素的位置动起来，并顺着路径同步旋转。定义这个路径是与[`<path>`](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/path)元素中定义路径的方法相同。
 
 ``` svg
-
   <svg xmlns="http://www.w3.org/2000/svg" width="300px" height="100px">
     <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
     <circle cx="0" cy="50" r="15" fill="blue" stroke="black" stroke-width="1">
@@ -194,18 +193,18 @@ svg（Scalable Vector Graphics，可缩放矢量图形），是一种用来描�
 
 - rotate 指定`rotate`属性为`auto`将会使运动元素始终沿着运动路径的切线方向运动，否则元素只是沿着路径平移。
 
-这样，我们实现了沿路径运动动画的需求
+这样，我们实现了沿路径运动动画的需求。
 
 > 注意，运动路径是相对运动元素的，即path的坐标原点为运动元素的初始定位点。
 
-那么如何实现路径本身生成过程的动画这里介绍一个svg`<path>`元素的属性——`stroke-dasharray`。
+
+那么如何实现路径本身生成过程的动画，这里介绍一个svg`<path>`元素的属性——`stroke-dasharray`。
 
 `stroke-dasharray`定义了将路径（path）边框描为虚线一种描边方式。是一组用逗号分割的数字组成的数列。每一组数字，第一个用来表示实线，第二个用来表示空白。`stroke-dasharray="5,10"`，表示路径将以5px实线和10px空白交替组成。
 
 通过改变`stroke-dasharray`的取值，不断增加实线的长度，缩短空白的长度，路径生成过程的动画就可以实现了。这里不得不赞叹css的强大，大部分css特性同样是可以作用于svg元素的。文章一开头就提过`stroke-dasharray`也是具有过渡效果的属性，因此我们可以给`stroke-dasharray`添加 animation/transition 动画。
 
 ``` svg
-
   <svg viewBox="0,0,200,150" xmlns="http://www.w3.org/2000/svg" version="1.1">
     <defs>
       <style type="text/css"><![CDATA[
@@ -230,9 +229,9 @@ svg（Scalable Vector Graphics，可缩放矢量图形），是一种用来描�
 
 ```
 
-[](codepen://arnan125/zKZvqp?height=200)
+[](codepen://arnan125/zKZvqp?height=300)
 
-一个综合了沿路径运动动画，路径生成动画，以及普通animation动画的demo
+下面是一个综合了沿路径运动动画，路径生成动画，以及普通animation动画的demo
 
 [](codepen://arnan125/RGqYRV?height=600)
 
@@ -253,3 +252,9 @@ FLIP
 
 canvas动画的实现原理更类似于生活中的电影放映原理，通过绘制每一帧画面，从而将连续的动画展现给用户。这种方式可以绘制更加复杂的动画，但是其实现原理却很简单，主要关注于具体绘制操作，以及如何保证绘制的效率，这里不做讨论。
 
+
+## 写在最后
+
+上文已经涵盖了目前几乎所有可以在生产环境使用的html简单动画实现的方式，未来css可能还会提供更丰富的动画实现方式，比如(`motion-path`)(https://developer.mozilla.org/en-US/docs/Web/CSS/motion-path)，但说到底这些都只是工具。炫酷的动画效果，灵动的交互方式最终还是来源于丰富的现象和对现有技术的熟练灵活地应用。
+
+是为笑谈，如有不妥，敬请斧正[mail](mailto: weimingyuan@163.com)。
