@@ -255,6 +255,6 @@ canvas动画的实现原理更类似于生活中的电影放映原理，通过�
 
 ## 写在最后
 
-上文已经涵盖了目前几乎所有可以在生产环境使用的html简单动画实现的方式，未来css可能还会提供更丰富的动画实现方式，比如(`motion-path`)(https://developer.mozilla.org/en-US/docs/Web/CSS/motion-path)，但说到底这些都只是工具。炫酷的动画效果，灵动的交互方式最终还是来源于丰富的现象和对现有技术的熟练灵活地应用。
+上文已经涵盖了目前几乎所有可以在生产环境使用的html简单动画实现的方式，未来css可能还会提供更丰富的动画实现方式，比如[`motion-path`](https://developer.mozilla.org/en-US/docs/Web/CSS/motion-path)，但说到底这些都只是工具。炫酷的动画效果，灵动的交互方式最终还是来源于丰富的现象和对现有技术熟练灵活的应用。
 
-是为笑谈，如有不妥，敬请斧正[mail](mailto: weimingyuan@163.com)。
+是为笑谈，如有不妥，敬请斧正，[邮件](mailto:weimingyuan@163.com)、PR 皆可。
