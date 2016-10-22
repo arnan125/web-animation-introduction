@@ -238,15 +238,30 @@ svg（Scalable Vector Graphics，可缩放矢量图形），是一种用来描�
 
 ## FLIP动画
 
-[FLIP](https://aerotwist.com/blog/flip-your-animations/)动画，FLIP即First（起始），Last（终止），Invert（反转），Play（播放）。
-FLIP
+考虑这样一种场景，页面内有一系列会发生移动的元素，在他移到目标位置之前，我们不能（或很难）确知其终点，甚至起点也是不断在变动的，如何实现这些元素移动过程的动画。典型例子，一个使用mvvm框架进行数据绑定的列表，当数据顺序发生改变时，我们希望能观察到每个条目（元素）的移动动态。这时候，[FLIP]的用武之地就显现出来了。
 
+[FLIP](https://aerotwist.com/blog/flip-your-animations/)动画，FLIP即First（起始），Last（终止），Invert（反转），Play（播放）。
+
+FLIP描述了这样一种过程，一个元素处于起始位置（First），直到由于数据的改变或是其他原因发生下一次渲染，移动到新的位置（Last），这时候立即将该元素移回到初始位置（Invert），然后给它设置`transition`样式作用于`transform: translate3D(...)`，其后将该元素通过`transform`移动到目标位置。由于此前设置了针对`transform`的`transition`样式，元素移回过程就会自然伴随着动画（Play）。而前三部的执行速度是非常快的，用户无法感知，只会看到该元素从起始位置伴随动画效果移动到目标位置。唯一需要遗留的问题是如何获取相对位置的改变。这里介绍一个js方法`getBoundingClientRect`。
+
+`getBoundingClientRect`方法是html元素实例上一个方法，可以通过该方法获取到html元素在视口中的绝对位置，它返回一个形如 `{ left:xxx, right:xxx, top:xxx, bottom:xxx, width:xxx, height:xxx }`的对象。
+
+因此只需要分别记录在F阶段和L阶段元素的BoundingClientRect值，简单的作差就可以获知元素相对为位置的改变。值得注意的是，`getBoundingClientRect`获取的是相对视口原点的位置，而非相对文档左上角的位置，在页面发生滚动时，F阶段和L阶段元素的BoundingClientRect差值并非是实际相对位置的改变，还应相应加上或者减去页面滚动值。
+
+一些优点
+
+- 可以利用/利用了GPU计算性能，动画帧率比较高
+
+- 不必确知每个动画元素的起止点，不必分别控制每个动画元素的运动过程
 
 一些应用:
 
-[](codepen://arnan125/bwxgyO?height=600)
+- 汉诺塔递归解法逐步演示demo
+
+  [](codepen://arnan125/bwxgyO?height=600)
 
 - [vue-animated-list](https://github.com/vuejs/vue-animated-list)
+
 
 ## canvas动画
 
@@ -257,4 +272,4 @@ canvas动画的实现原理更类似于生活中的电影放映原理，通过�
 
 上文已经涵盖了目前几乎所有可以在生产环境使用的html简单动画实现的方式，未来css可能还会提供更丰富的动画实现方式，比如[`motion-path`](https://developer.mozilla.org/en-US/docs/Web/CSS/motion-path)，但说到底这些都只是工具。炫酷的动画效果，灵动的交互方式最终还是来源于丰富的现象和对现有技术熟练灵活的应用。
 
-是为笑谈，如有不妥，敬请斧正（[邮件](mailto:weimingyuan@163.com)|PR皆可）。
+是为浅见，如有不妥，敬请斧正（[邮件](mailto:weimingyuan@163.com)/PR皆可）。
