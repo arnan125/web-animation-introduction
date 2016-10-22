@@ -4,7 +4,7 @@
 
 内容比较琐碎，主要着眼于这些动画实现的原理和一些小技巧、小tips。
 
-多年不写东西，文字功底下降得厉害。如有不明白的地方，请参阅demo代码。
+多年不写东西，文字功底下降得厉害。如有不甚明白的地方，请参阅demo代码。
 
 > Talk is cheap. Show me the code.
 
@@ -81,7 +81,7 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
   ```
   name 预定义关键帧的名称。关键帧由@keyframes定义，见后文。
 
-  timing-function 可为预定义的值如`linear`、`ease`等，三次贝塞尔函数，阶跃函数steps。
+  timing-function 可取预定义的值如`linear`、`ease`，三次贝塞尔函数，阶跃函数steps。
   
   timing-function 作用周期是两个关键帧（keyframe）之间（非一次完整动画过程）。
   
@@ -89,7 +89,7 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
   
   duration 一次完整动画过程所需时间（不重复）。
   
-  fill-mode 为结束动画后元素的位置（大小）状态，默认取值`normal`表示恢复原位置（大小）。当取其他值的时候，还依赖于属性`animation-direction`和`iteration-count`。常用的取值之一`forwards`将会使只执行一次的正序（normal）动画保持最终状态。其它取值不再一一列举，具体细节请查看[animation-fill-mode](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-fill-mode).
+  fill-mode 指定动画结束后元素的位置（大小）状态，默认取值`normal`表示恢复原位置（大小）。当取其他值的时候，还依赖于属性`animation-direction`和`iteration-count`。常用的取值之一`forwards`将会使只执行一次的正序（normal）动画保持最终状态。其它取值不再一一列举，具体细节请查看[animation-fill-mode](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-fill-mode).
 
 - transition
 
@@ -99,13 +99,13 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
     
   ```
 
-  timing-function 取预定义的值如`linear`、`ease`等，三次贝塞尔函数，阶跃函数steps。
+  timing-function 可取预定义的值如`linear`、`ease`，三次贝塞尔函数，阶跃函数steps。
   
   一般通过修改属性值(添加class)或者由伪类(:hover)来触发transition动画。
 
 - 时间函数——阶跃函数`steps(num, flag)`
   
-  `num`是两次属性变动之间发生的阶跃次数，`flag`表示阶跃的变动点在时隙的开始还是结束，默认为`end`，即保持当前状态到时隙结束才发生变动（例如，当`num`为1，flag取`end`时，动画将保持初始状态直到时隙结束，如果取`start`，状态则在时隙一开始就发生了变化）
+  `num`是两个关键帧（keyframe）之间发生的阶跃次数，`flag`表示阶跃的变动点在时隙的开始(start)还是结束(end)。默认为`end`，即保持当前状态到时隙结束才发生变动（例如，当`num`为1，flag取`end`时，动画将保持初始状态直到时隙结束，如果取`start`，状态则在时隙一开始就发生了变化）
   
   steps常用来作为雪碧图（sprite）动画的时间函数，如后文示例。
 
@@ -117,7 +117,7 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
 
   animationend：在animation动画结束后触发
 
-  animationiteration：在执行完一次animation动画周期时触发（`animation-iteration-count`为1的时不触发）
+  animationiteration：在完成一次animation动画周期时触发（`animation-iteration-count`为1的时不触发）
 
 - 关键帧`@keyframes`
 
@@ -160,7 +160,7 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
 
 ## svg动画
 
-svg（Scalable Vector Graphics，可缩放矢量图形），是一种用来描述二维矢量图形的XML标记语言，与其他的W3C标准，比如CSS, DOM和SMIL等能够协同工作。关于可讲的东西很多，这里不做深入探讨，如需了解细节，请移步[MDN-svg](https://developer.mozilla.org/zh-CN/docs/Web/SVG)。
+svg（Scalable Vector Graphics，可缩放矢量图形），是一种用来描述二维矢量图形的XML标记语言，与其他的W3C标准，比如CSS, DOM和SMIL等能够协同工作。关于svg可讲的东西很多，这里不做深入探讨，如需了解细节，请移步[MDN-svg](https://developer.mozilla.org/zh-CN/docs/Web/SVG)。
 
 上文已经介绍了通过animation/transition来实现一些简单的动画（过渡）效果，虽然这种方法已经可以实现大多数简单动画，但是考虑这样一些需求——绘制某元素沿着一段轨迹运动的动画，或者绘制一段轨迹本身的生成过程（笔迹，路径），上文提到的方法显然是不好实现的。所幸。svg为我们提供了一系列animation元素：
 
@@ -170,9 +170,9 @@ svg（Scalable Vector Graphics，可缩放矢量图形），是一种用来描�
 - `<animateTransform>` 变动变形属性（translation或rotation）
 - `<animateMotion>` 物件运动方向与路径方向同步
 
-其中前三个都可以用css animation/transition 替代实现，唯独第四个沿路径运动是css animation/transition无法直接实现的。因此这里重点介绍`<animateMotion>`。
+其中前四个都可以用css animation/transition 替代实现，唯独第四个沿路径运动是css animation/transition无法直接实现的。因此这里重点介绍`<animateMotion>`。
 
-`<animateMotion>`元素使一个元素的位置动起来，并顺着路径同步旋转。定义这个路径是与[`<path>`](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/path)元素中定义路径的方法相同。
+`<animateMotion>`元素使一个元素的位置动起来，并顺着路径同步旋转。定义该路径的方法与[`<path>`](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/path)元素中相同。
 
 ``` svg
   <svg xmlns="http://www.w3.org/2000/svg" width="300px" height="100px">
@@ -184,14 +184,16 @@ svg（Scalable Vector Graphics，可缩放矢量图形），是一种用来描�
 
 ```
 
-其中`<rect>`元素作为背景存在，静止不动。`<circle>`为运动元素，它的子元素是一个动画元素`<animateMotion>`，`<animateMotion>`将会使`<circle>`动起来。
+其中`<rect>`元素作为背景存在，静止不动。`<circle>`为运动元素，它的子元素是一个动画元素`<animateMotion>`。`<animateMotion>`将会使`<circle>`动起来。
+
 我们详细看一下各个属性。
 
-- path 运动路径，坐标原点为运动元素的初始定位点，而非画布的坐标原点（svg容器左上角）。路径指令字符串中的英文字母为指令，后面跟一个或者两个值做为坐标。`M`即move，即移动到该坐标；`H` 即horizontal，后跟一个数值，表示水平移动到某坐标；`V` 即vertical，后跟一个数值，表示垂直移动到某坐标；`L` ，即line，后跟两个数值，用逗号隔开，表示到某坐标的连线；`Z` 表示闭合路径，将会连接起始坐标。更多的指令请参阅[MDN-paths](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths)
+- path 运动路径，坐标原点为运动元素的初始定位点，而非画布的坐标原点（svg容器左上角）。路径指令字符串中的英文字母为指令，后面跟一个或者两个值做为坐标。`M`即move，即移动到该坐标；`H` 即horizontal，后跟一个数值，表示水平移动到某坐标；`V` 即vertical，后跟一个数值，表示垂直移动到某坐标；`L` ，即line，后跟两个数值，用逗号隔开，表示到某坐标的连线；`Z` 表示闭合路径，将会连接起始坐标。更多的指令请参阅[MDN-paths](https://developer.mozilla.org/zh-CN/docs/We
+b/SVG/Tutorial/Paths)
 
 - repeatCount 指定重复次数，`indefinite`表示无限次
 
-- rotate 指定`rotate`属性为`auto`将会使运动元素始终沿着运动路径的切线方向运动，否则元素只是沿着路径平移。
+- rotate 指定`rotate`属性为`auto`将会使运动元素始终沿着运动路径的切线方向运动（可能发生转动），否则元素只是沿着路径平移。
 
 这样，我们实现了沿路径运动动画的需求。
 
