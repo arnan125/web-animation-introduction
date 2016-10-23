@@ -75,7 +75,6 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
 - animation 
 
   ``` css
-    
     animation: name duration timing-function delay iteration-count direction fill-mode [, name duration timing-function delay iteration-count direction fill-mode] * ;  // 可指定多组值
 
   ```
@@ -94,7 +93,6 @@ css3 引入的`transition`和`animation`属性给网页动画提供了一种新�
 - transition
 
   ``` css
-    
     transition: property duration timing-function delay [, property duration timing-function delay] * ; // 可指定多组值
     
   ```
