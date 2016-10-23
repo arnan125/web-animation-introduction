@@ -8,4 +8,4 @@
 
 > Talk is cheap. Show me the code.
 
-[gitbook](https://arnan125.gitbooks.io/whats-new-in-vue2-0/content)
+[gitbook](https://arnan125.gitbooks.io/web-animation-introduction/content)
