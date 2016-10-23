@@ -8,4 +8,4 @@
 
 > Talk is cheap. Show me the code.
 
-[gitbook](https://arnan125.gitbooks.io/web-animation-introduction/content)
+[read on gitbook](https://arnan125.gitbooks.io/web-animation-introduction/content)
