@@ -1,3 +1,15 @@
 {
-    
+    "plugins": [
+        "codepen"
+    ],
+     "styles": {
+        "ebook": "styles/ebook.css",
+        "website": "styles/website.css"
+     },
+    "pluginsConfig": {
+        "codepen": {
+          "height": 400,
+          "theme": 0
+        }
+    }
 }
